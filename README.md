@@ -6,6 +6,9 @@
 
 <p><a href="https://www.linkedin.com/in/rodriguezomar/">https://www.linkedin.com/in/rodriguezomar/</a></p>
 
+<p><a href="https://github.com/rodriguezomar">https://github.com/rodriguezomar</a></p>
+
+
 <p>&nbsp;</p>
 
 <p>&nbsp;</p>
