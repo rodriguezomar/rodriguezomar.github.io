@@ -9,7 +9,7 @@
 ## 🌐 Perfiles:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/rodriguezomar) 
 <p><a href="https://github.com/rodriguezomar">https://github.com/rodriguezomar</a></p>
-<p><a href="rodriguezomar.com.ar">https://www.rodriguezomar.com.ar</a></p>
+<p><a href="www.rodriguezomar.com.ar">https://www.rodriguezomar.com.ar</a></p>
 
 
 # 💻 Tech Stack:
