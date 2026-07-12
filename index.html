@@ -689,25 +689,6 @@
         window.addEventListener("scroll", reveal);
         reveal();
 
-        // Contador de visitas (utilizando API pública gratuita)
-        function updateCounter() {
-            // Utilizamos el namespace de tu portfolio para mantener el conteo
-            fetch('https://api.counterapi.dev/v1/rodriguezomar_portfolio/visits')
-                .then(response => response.json())
-                .then(data => {
-                    // Formatea el número a 6 dígitos rellenando con ceros (ej. 000142)
-                    const countString = String(data.count).padStart(6, '0');
-                    document.getElementById('visit-counter').innerText = countString;
-                })
-                .catch(error => {
-                    // Fallback visual en caso de error de red
-                    document.getElementById('visit-counter').innerText = "000000";
-                    console.log("No se pudo cargar el contador.", error);
-                });
-        }
-        
-        // Ejecutar contador al cargar
-        updateCounter();
     </script>
 </body>
 </html>
