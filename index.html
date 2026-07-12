@@ -314,6 +314,19 @@
             font-weight: 600;
         }
 
+        /* Estilo del contador para que parezca código en la terminal */
+        .visit-counter-container {
+            margin-top: 1.5rem;
+            font-family: var(--font-console);
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+        
+        .visit-counter-container:hover {
+            opacity: 1;
+            color: var(--accent-glow);
+        }
+
         @keyframes blink { 
             0%, 49% { opacity: 1; }
             50%, 100% { opacity: 0; }
@@ -611,9 +624,12 @@
 
     <footer>
         <p>&copy; 2026 Omar Eduardo Rodriguez. Desplegado para www.rodriguezomar.com.ar</p>
+        <!-- Contador de visitas silencioso -->
+        <div class="visit-counter-container" id="visit-counter">000000</div>
     </footer>
 
     <script>
+        // Animación de escritura
         const words = [
             "Especialista IoT-IIoT | Ciberseguridad OT | Embodied AI & Physical AI", 
             "Desarrollo Realidad Virtual y Aumentada | Robotica | Sistemas Ciberfisicos | Sistemas embebidos",
@@ -656,6 +672,7 @@
         }
         typingEffect();
 
+        // Efecto reveal en el scroll
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var j = 0; j < reveals.length; j++) {
@@ -669,6 +686,26 @@
         }
         window.addEventListener("scroll", reveal);
         reveal();
+
+        // Contador de visitas (utilizando API pública gratuita)
+        function updateCounter() {
+            // Utilizamos el namespace de tu portfolio para mantener el conteo
+            fetch('https://api.counterapi.dev/v1/rodriguezomar_portfolio/visits')
+                .then(response => response.json())
+                .then(data => {
+                    // Formatea el número a 6 dígitos rellenando con ceros (ej. 000142)
+                    const countString = String(data.count).padStart(6, '0');
+                    document.getElementById('visit-counter').innerText = countString;
+                })
+                .catch(error => {
+                    // Fallback visual en caso de error de red
+                    document.getElementById('visit-counter').innerText = "000000";
+                    console.log("No se pudo cargar el contador.", error);
+                });
+        }
+        
+        // Ejecutar contador al cargar
+        updateCounter();
     </script>
 </body>
 </html>
