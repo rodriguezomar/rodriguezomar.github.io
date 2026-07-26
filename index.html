@@ -688,14 +688,34 @@
         </div>
         <p>&copy; 2026 Omar Eduardo Rodriguez. Desplegado para www.rodriguezomar.com.ar <span id="visit-number">_</span</p>
     </footer>
-<script>
-    // 2. Convierte el número a binario rellenando a 16 bits
-    const visitasBinario16 = visit-number.toString(2).padStart(16, '0');
 
-    // 3. Modifica los elementos del HTML seleccionándolos por sus IDs únicos
-    document.getElementById('visit-number').textContent = visitasBinario16;
-    document.getElementById('visit-number-bottom').textContent = visitasBinario16;
+    <script>
+    // Ejecutar cuando el HTML termine de cargar
+    window.addEventListener('DOMContentLoaded', () => {
+        // 1. Obtener el elemento que ya tiene el número decimal cargado
+        const decimalElement = document.getElementById('visit-counter-decimal');
+        
+        if (decimalElement) {
+            // 2. Extraer el texto y convertirlo a número entero
+            const numeroDecimal = parseInt(decimalElement.textContent, 10);
+            
+            // Validar que realmente sea un número antes de convertirlo
+            if (!isNaN(numeroDecimal)) {
+                // 3. Convertir a binario con longitud fija de 16 bits
+                const visitasBinario16 = numeroDecimal.toString(2).padStart(16, '0');
+                
+                // 4. Insertar el binario en los tres contenedores independientes
+                document.getElementById('visit-number-top').textContent = visitasBinario16;
+                document.getElementById('visit-number-mid').textContent = visitasBinario16;
+                document.getElementById('visit-number-bottom').textContent = visitasBinario16;
+                
+                // Opcional: Si quieres ocultar el decimal original y dejar solo binarios, descomenta la línea de abajo:
+                // decimalElement.style.display = 'none';
+            }
+        }
+    });
 </script>
+    
     <script>
         // Animación de escritura
         const words = [
