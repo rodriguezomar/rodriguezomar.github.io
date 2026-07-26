@@ -397,7 +397,7 @@
     </style>
 </head>
 <body>
-
+    
     <nav>
         <div class="logo">Omar Eduardo<span> Rodriguez</span></div>
         <ul>
@@ -682,6 +682,8 @@
 
     <footer>
          <div class="footer-loader">
+         // Convierte a binario y fuerza la longitud fija a 16 bits
+         const visitasBinario16 = visit_counter.toString(2).padStart(16, '0');
          CODE : <span id="visit-number">_</span>
         </div>
         <p>&copy; 2026 Omar Eduardo Rodriguez. Desplegado para www.rodriguezomar.com.ar <span id="visit-number">_</span</p>
@@ -761,5 +763,6 @@
 
         
     </script>
+
 </body>
 </html>
