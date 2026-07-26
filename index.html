@@ -683,14 +683,7 @@
         <p>&copy; 2026 Omar Eduardo Rodriguez. Desplegado para www.rodriguezomar.com.ar</p>
         <!-- Contador de visitas silencioso -->
        
-        <div class="visit-counter-container">
-            <img src="https://profile-counter.glitch.me/rodriguezomar_portfolio/count.svg" 
-                 alt="Visitas" 
-                 style="opacity: 0.5; filter: hue-rotate(140deg) brightness(1.5); transition: all 0.3s; height: 25px; border-radius: 0;" 
-                 onmouseover="this.style.opacity='1';" 
-                 onmouseout="this.style.opacity='0.5';" 
-                 onerror="this.style.display='none'">
-        </div>
+       
     </footer>
 
     <script>
@@ -752,6 +745,20 @@
         window.addEventListener("scroll", reveal);
         reveal();
 
+  // Script para el contador de visitas numérico
+        // Agregamos "/up" al final para que cree el registro y sume la visita
+        fetch('https://api.counterapi.dev/v1/rodriguezomar/portfolio/up')
+            .then(res => res.json())
+            .then(data => {
+                // Muestra solo el número en el footer
+                document.getElementById('visit-number').innerText = data.count;
+            })
+            .catch(() => {
+                // Fallback silencioso en caso de error o bloqueo por adblockers
+                document.getElementById('visit-number').innerText = "1";
+            });
+
+        
     </script>
 </body>
 </html>
