@@ -679,7 +679,15 @@
             <span class="skill-tag">Liderazgo de Equipos de Desarrollo & Helpdesk</span>
         </div>
     </section>
+<script>
+    // 2. Convierte el número a binario rellenando a 16 bits
+    const visitasBinario16 = visit_counter.toString(2).padStart(16, '0');
 
+    // 3. Modifica los elementos del HTML seleccionándolos por sus IDs únicos
+    document.getElementById('visit-number-top').textContent = visitasBinario16;
+    document.getElementById('visit-number-bottom').textContent = visitasBinario16;
+</script>
+    
     <footer>
          <div class="footer-loader">
          // Convierte a binario y fuerza la longitud fija a 16 bits
