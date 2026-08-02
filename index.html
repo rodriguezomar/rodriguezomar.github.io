@@ -91,6 +91,16 @@
 
         .logo span { color: var(--accent); }
 
+        /* Botón menú móvil (oculto en desktop) */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            color: var(--accent);
+            font-family: var(--font-console);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
         nav ul { display: flex; list-style: none; gap: 1.5rem; }
 
         nav ul li a {
@@ -314,6 +324,22 @@
         }
 
         .card i { font-size: 2rem; color: var(--text-secondary); margin-bottom: 1.2rem; }
+        
+        /* Estilos para las imágenes de los desarrollos */
+        .card-img-top {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+            filter: grayscale(80%) sepia(20%) hue-rotate(180deg);
+            transition: filter 0.3s;
+        }
+        
+        .card:hover .card-img-top {
+            filter: grayscale(0%);
+        }
+
         .card h3 { 
             font-family: var(--font-pixel); 
             font-size: 0.8rem; 
@@ -395,10 +421,30 @@
         }
 
         @media (max-width: 768px) {
+            .menu-toggle {
+                display: block; /* Muestra el botón en móvil */
+            }
+            nav {
+                flex-wrap: wrap;
+            }
+            nav ul {
+                display: none; /* Oculta la lista por defecto en móvil */
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                background: rgba(16, 17, 17, 0.98);
+                padding: 1.5rem 0;
+                border-top: 1px dashed var(--border-color);
+                margin-top: 1rem;
+                gap: 1.5rem;
+            }
+            nav ul.active {
+                display: flex; /* Se muestra cuando tiene la clase active */
+            }
+
             #hero h1 { font-size: 1.3rem; }
             .typewriter-container { font-size: 0.6rem; height: 3.5rem; }
             .logo { font-size: 0.6rem; }
-            nav ul { display: none; }
             section { padding: 6rem 5% 3rem 5%; }
             .timeline-header { flex-direction: column; gap: 0.5rem; }
             .section-title { font-size: 0.9rem; }
@@ -410,13 +456,15 @@
     
     <nav>
         <div class="logo">Omar Eduardo<span> Rodriguez</span></div>
-        <ul>
+        <div class="menu-toggle" id="mobile-menu">[ MENU ]</div>
+        <ul id="nav-list">
             <li><a href="#hero">Inicio</a></li>
             <li><a href="#experience">Experiencia</a></li>
             <li><a href="#education">Formación</a></li>
             <li><a href="#academic-courses">Cursos Dictados</a></li>
             <li><a href="#media">Divulgación</a></li>
             <li><a href="#publications">Publicaciones</a></li>
+            <li><a href="#developments">Desarrollos</a></li>
             <li><a href="#skills">Especialidades</a></li>
         </ul>
     </nav>
@@ -586,7 +634,7 @@
                     <li>Diplomatura en Ciberseguridad en Sistemas Industriales ICS OT (UNSTA)</li>
                     <li>Experto Universitario en Hacking Ético (Ethical Hacking)</li>
                     <li>Diplomado Universitario de Capacitación Docente en Neurociencias</li>
-                    <li>𝗗𝗶𝗽𝗹𝗼𝗺𝗮𝘁𝘂𝗿𝗮 𝗲𝗻 𝗚𝗘𝗦𝗧𝗜𝗢𝗡 𝗱𝗲 𝗹𝗮 𝗖𝗜𝗕𝗘𝗥𝗦𝗘𝗚𝗨𝗥𝗜𝗗𝗔𝗗</li>
+                    <li>Diplomatura en Gestion de la Ciberseguridad</li>
                     <li>"Vigilancia Tecnológica e Inteligencia Estratégica"</li>
                     <li>Diplomatura en INNOVACIÓN ABIERTA</li>
                 </ul>
@@ -604,6 +652,7 @@
                 <ul style="margin-left: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
                     <li>Sistemas en la Industria 4.0 (Ing. en Sistemas)</li>
                     <li>Tecnologías para la automatización (Ing. en Sistemas)</li>
+					<li>Teoría de Control (Ing. en Sistemas)</li>
                     <li>Aplicaciones en Tiempo Real en la Industria (Ing. Industrial / Eléctrica)</li>
                     <li>Comunicaciones y Redes (Ing. en Sistemas)</li>
                     <li>Aplicaciones en Tiempo Real (Ing. Eléctrica)</li>
@@ -681,7 +730,7 @@
         
         <!-- Recuadro destacado para el cargo principal de investigación -->
         <p style="color: var(--accent); font-size: 1.1rem; margin-bottom: 2rem; border-left: 2px solid var(--accent); padding-left: 1rem; font-weight: bold; background: rgba(176, 225, 240, 0.05); padding: 1rem;">
-            > Investigador Cat. D (202) - UTN - Centro Investigación, Desarrollo e Innovación CODAPLI
+            > Investigador Cat. D (2020) - UTN - Centro Investigación, Desarrollo e Innovación CODAPLI
         </p>
 
         <!-- Grilla de Proyectos de Investigación -->
@@ -955,6 +1004,80 @@
         </div>
     </section>
 
+    <!-- NUEVO APARTADO: DESARROLLOS & PROYECTOS -->
+    <section id="developments" class="reveal">
+        <h2 class="section-title">Desarrollos & Proyectos</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <!-- Reemplazar el src con la ruta a tu imagen o GIF -->
+                <img src="img/gemelo_motor.gif" alt="HW & SW - Gemelo Digital de un Motor monofásico" class="card-img-top">
+                <h3>Gemelo Digital Motor Monofasico</h3>
+                <h4>Electronica + Software</h4>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">Despliegue de hardware para captura de datos, modelado matemático del Gemelo Digital e interfaz de usuario, alarmas y objetos 3D.</p>
+            </div>
+
+			<div class="card">
+                <!-- Reemplazar el src con la ruta a tu imagen o GIF -->
+                <img src="img/robot_ros2.jpg" alt="Robot ROS2" class="card-img-top">
+                <h3>Integración de robot basado en ROS2</h3>
+                <h4>Implementacion de un robot basado en ROS2 para pruebas laboratorio</h4>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">Desarrollo que incluye la adecuación de hardware y desarrollo de software para el despliegue de algoritmos bajo ROS2</p>
+            </div>
+
+			<div class="card">
+                <!-- Reemplazar el src con la ruta a tu imagen o GIF -->
+                <img src="img/robot_llm.jpg" alt="Robot_LLM" class="card-img-top">
+                <h3>Robot conectado a un LLM (Large Language Model)</h3>
+                <h4>Armado de hardware y software para la conexion de un robot a un LLM</h4>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">PoC - Desarrollo del hardware y acciones de control en un robot diferencial para que tome acciones en base al contexto del chat sin indicarle acciones concretas</p>
+            </div>	
+
+            <div class="card">
+                <!-- Reemplazar el src con la ruta a tu imagen o GIF -->
+                <img src="img/rv.png" alt="Desarrollo Realidad Virtual" class="card-img-top">
+                <h3>Desarrollo Realidad Virtual</h3>
+                <h4>Oculus QUEST 2</h4>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">Desarrollo de interfaces de Realidad Virtual en Oculus Quest 2</p>
+            </div>
+
+            <div class="card">
+                <!-- Reemplazar el src con la ruta a tu imagen o GIF -->
+                <img src="img/ensayo_transformador.jpg" alt="Ensayos de Cortocircuito Transformadores - LABORATORIO REMOTO" class="card-img-top">
+                <h3>Ensayos de Cortocircuito Transformadores - LABORATORIO REMOTO</h3>
+                <h4>Hardware de captura de datos + Interfaz de usuario</h4>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">Desarrollo de hardware de adquisición de datos e interfaz de usuario para laboratorio de ensayos de Cortocircuito de Transformadores</p>
+            </div>
+			
+            <div class="card">
+                <!-- Reemplazar el src con la ruta a tu imagen o GIF -->
+                <img src="img/plc.jpg" alt="Panel de control de Grafana con datos de Node-RED" class="card-img-top">
+                <h3>Desarrollo Tablero + PLC para pruebas de laboratorio / Clases</h3>
+                <h4>Implementacion de un tablero con PLC con IO para desarrollo y pruebas</h4>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">Desarrollo equipamiento para pruebas de programas de PLC en clase, en laboratorio e integración con Laboratorios remotos para pruebas via internet</p>
+            </div>
+			
+			<div class="card">
+                <!-- Reemplazar el src con la ruta a tu imagen o GIF -->
+                <img src="img/lab_rem.jpg" alt="Laboratorio remotos para la practica de programacion de microcontroladores" class="card-img-top">
+                <h3>Desarrollo Plataforma Laboratorio Remoto + Programacion Microcontroladores</h3>
+                <h4>Implementacion de una plataforma de laborario remotos para practicas de programación de microcontroladores</h4>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">Desarrollo e implementación de hardware y software para una plataforma de practicas remotas sobre dispositivos fisicos</p>
+            </div>
+
+			<div class="card">
+                <!-- Reemplazar el src con la ruta a tu imagen o GIF -->
+                <img src="img/insulina.jpg" alt="Bomba de infusion de insulina" class="card-img-top">
+                <h3>Desarrollo bomba de infusión de insulina</h3>
+                <h4>Diseño y adecuación del hardware para el diseño de una bomba de infusión de insulina</h4>
+                <p style="color: var(--text-secondary); font-size: 0.95rem;">Desarrollo del hardware y acciones de control para prueba de PoC de una bomba de infusión de insulina para personas con diabetes tipo 2</p>
+            </div>			
+
+
+
+        </div>
+    </section>
+
     <section id="skills" class="reveal">
         <h2 class="section-title">Especialidades & Stack Técnico</h2>
         <div class="skills-container">
@@ -993,6 +1116,22 @@
     </footer>
 
     <script>
+        // Lógica del menú móvil
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+        const navLinks = document.querySelectorAll('#nav-list a');
+
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        // Cierra el menú al tocar un enlace (ideal para móviles)
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
+        });
+
         // Animación de escritura
         const words = [
             "Especialista IoT-IIoT | Ciberseguridad OT | Embodied AI & Physical AI", 
