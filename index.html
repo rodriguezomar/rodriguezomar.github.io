@@ -11,8 +11,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Omar Eduardo Rodriguez | Portfolio de Ingeniería & Ciberseguridad OT</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">    
-    <!-- Fuentes Arcade y Terminal Retro -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    
+    <!-- Fuentes Industriales y Terminal Moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             /* Paleta Arcade / Cyberpunk (Basada en la imagen estetica.png) */
@@ -25,8 +27,8 @@
             --text-primary: #e0e0e0;  
             --text-secondary: #88a8b0;
             --border-color: #2a3a3f;
-            --font-pixel: 'Press Start 2P', cursive;
-            --font-console: 'VT323', monospace;
+            --font-pixel: 'Share Tech Mono', monospace; /* Títulos técnicos industriales */
+            --font-console: 'Fira Code', monospace;     /* Texto general nítido */
         }
 
         * {
@@ -34,17 +36,17 @@
             padding: 0;
             box-sizing: border-box;
             scroll-behavior: smooth;
-            border-radius: 0 !important; /* Estética 8-bit de bordes duros */
+            border-radius: 0 !important; /* Estética de bordes duros */
         }
 
         html {
-            font-size: 18px; /* Tamaño base adaptado a la fuente VT323 */
+            font-size: 16px; /* Tamaño base estándar para fuentes modernas */
         }
 
         body {
             background-color: var(--bg-dark);
             color: var(--text-primary);
-            line-height: 1.5;
+            line-height: 1.6;
             overflow-x: hidden;
             font-family: var(--font-console);
         }
@@ -76,10 +78,11 @@
 
         .logo {
             font-family: var(--font-pixel);
-            font-size: 0.8rem;
+            font-size: 1.1rem;
             color: var(--text-primary);
             text-transform: uppercase;
             line-height: 1.4;
+            font-weight: bold;
         }
 
         .logo::before {
@@ -106,7 +109,7 @@
             font-family: var(--font-console);
             text-decoration: none;
             color: var(--text-secondary);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
             transition: color 0.2s, background 0.2s;
             padding: 0.2rem 0.5rem;
@@ -129,7 +132,7 @@
         .reveal {
             opacity: 0;
             transform: translateY(10px);
-            transition: all 0.1s step-end;
+            transition: all 0.2s ease-out;
         }
 
         .reveal.active {
@@ -139,12 +142,12 @@
 
         .section-title {
             font-family: var(--font-pixel);
-            font-size: 1.2rem;
+            font-size: 1.8rem;
             margin-bottom: 3rem;
             color: var(--accent);
             text-transform: uppercase;
             border-bottom: 2px solid var(--accent);
-            padding-bottom: 1rem;
+            padding-bottom: 0.5rem;
             display: inline-block;
             text-shadow: 0 0 5px var(--accent-glow);
             line-height: 1.5;
@@ -153,7 +156,7 @@
         .section-title::before {
             content: "SYSTEM OP: ";
             color: var(--text-secondary);
-            font-size: 0.8rem;
+            font-size: 1.2rem;
             margin-right: 15px;
             text-shadow: none;
         }
@@ -168,17 +171,17 @@
 
         #hero h1 {
             font-family: var(--font-pixel);
-            font-size: 2rem;
+            font-size: 3rem;
             color: var(--accent);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             text-transform: uppercase;
             text-shadow: 0 0 8px var(--accent-glow);
-            line-height: 1.3;
+            line-height: 1.2;
         }
 
         .typewriter-container {
             font-family: var(--font-pixel);
-            font-size: 0.8rem;
+            font-size: 1.2rem;
             color: var(--text-primary);
             margin-bottom: 2.5rem;
             height: 2.5rem;
@@ -195,7 +198,7 @@
         }
 
         #hero p {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             color: var(--text-primary);
             max-width: 900px;
             margin-bottom: 3rem;
@@ -216,10 +219,11 @@
             color: var(--accent);
             text-decoration: none;
             border: 2px solid var(--accent);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             transition: all 0.2s;
             text-transform: uppercase;
             box-shadow: 4px 4px 0px var(--border-color);
+            font-weight: 600;
         }
 
         .btn:hover {
@@ -282,9 +286,9 @@
 
         .timeline-header h3 {
             font-family: var(--font-pixel);
-            font-size: 0.8rem;
+            font-size: 1.1rem;
             color: var(--text-primary);
-            line-height: 1.5;
+            line-height: 1.4;
             text-transform: uppercase;
             margin-bottom: 0.5rem;
         }
@@ -292,20 +296,20 @@
         .timeline-header strong {
             color: var(--accent) !important;
             font-family: var(--font-pixel);
-            font-size: 0.7rem;
+            font-size: 0.9rem;
         }
 
         .timeline-date {
             color: var(--bg-dark);
             background: var(--text-secondary);
             padding: 0.2rem 0.6rem;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
         }
 
-        .timeline-item ul { margin-left: 1.5rem; list-style-type: square; font-size: 1.2rem; }
+        .timeline-item ul { margin-left: 1.5rem; list-style-type: square; font-size: 1.05rem; color: var(--text-secondary); }
         .timeline-item li { margin-bottom: 0.5rem; }
-        .timeline-item p { font-size: 1.2rem; }
+        .timeline-item p { font-size: 1.05rem; color: var(--text-secondary); }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
 
@@ -341,14 +345,14 @@
 
         .card h3 { 
             font-family: var(--font-pixel); 
-            font-size: 0.8rem; 
+            font-size: 1.1rem; 
             margin-bottom: 1rem; 
             color: var(--text-primary);
             text-transform: uppercase;
             line-height: 1.4;
         }
-        .card h4 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--accent); text-transform: uppercase;}
-        .card p, .card ul { font-size: 1.1rem; flex-grow: 1;}
+        .card h4 { font-size: 1.05rem; margin-bottom: 0.8rem; color: var(--accent); text-transform: uppercase;}
+        .card p, .card ul { font-size: 1rem; flex-grow: 1; color: var(--text-secondary); }
 
         .skills-container { display: flex; flex-wrap: wrap; gap: 0.8rem; }
 
@@ -357,7 +361,7 @@
             color: var(--accent);
             padding: 0.6rem 1.2rem;
             border: 1px solid var(--border-color);
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-transform: uppercase;
         }
 
@@ -372,7 +376,7 @@
             padding: 3rem;
             border-top: 2px dashed var(--border-color);
             color: var(--text-secondary);
-            font-size: 1.1rem;
+            font-size: 1rem;
             background: var(--bg-surface);
             text-transform: uppercase;
         }
@@ -385,7 +389,7 @@
             margin-bottom: 2rem;
             color: var(--text-secondary);
             font-family: var(--font-pixel);
-            font-size: 0.6rem;
+            font-size: 0.8rem;
             line-height: 1.6;
             max-width: 1200px;
             margin-left: auto;
@@ -402,7 +406,7 @@
             align-items: center;
             gap: 0.5rem;
             font-family: var(--font-pixel);
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
         }
         
@@ -441,13 +445,13 @@
                 display: flex; /* Se muestra cuando tiene la clase active */
             }
 
-            #hero h1 { font-size: 1.3rem; }
-            .typewriter-container { font-size: 0.6rem; height: 3.5rem; }
-            .logo { font-size: 0.6rem; }
+            #hero h1 { font-size: 1.8rem; }
+            .typewriter-container { font-size: 0.9rem; height: 3.5rem; }
+            .logo { font-size: 0.9rem; }
             section { padding: 6rem 5% 3rem 5%; }
             .timeline-header { flex-direction: column; gap: 0.5rem; }
-            .section-title { font-size: 0.9rem; }
-            .section-title::before { font-size: 0.6rem; display: block; margin-bottom: 0.5rem;}
+            .section-title { font-size: 1.3rem; }
+            .section-title::before { font-size: 0.9rem; display: block; margin-bottom: 0.5rem;}
         }
     </style>
 </head>
@@ -513,14 +517,14 @@
                     </div>
                     <span class="timeline-date"> 2012 - Presente</span>
                 </div>
-                <p style="color: var(--text-secondary); margin-bottom: 0.8rem; font-size: 0.95rem;">
+                <p>
                     Director del proyecto estratégico: <em>"Remotización de Sistemas de Monitoreo y Comando en experiencias con máquinas eléctricas"</em>. 
                 </p>
                 <ul>
                     <li>Investigación avanzada enfocada en proyectos de codiseño hardware/software orientados a Sistemas de Tiempo Real.</li>
                     <li>Diseño y virtualización de laboratorios avanzados distribuidos (Máquinas Eléctricas, Accionamientos y Controles) integrados con el medio productivo de PyMEs.</li>
                 </ul>
-				<p style="color: var(--text-secondary); margin-bottom: 0.8rem; font-size: 0.95rem;">
+                <p>
                     Profesor <em>en las carreras de Ingenieria en Sistemas - Ingeniería Industrial - Ingenieria Eléctrica</em>. 
                 </p>
             </div>
@@ -609,30 +613,30 @@
                 <i class="fas fa-user-graduate"></i>
                 <h3>Doctorado en Ciencia y Tecnología</h3>
                 <h4>Universidad Nacional Arturo Jauretche</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">En curso (2026) "Optimización Prescriptiva de Sistemas Industriales Complejos mediante la Integración de Modelos de Primeros Principios y Gemelos Digitales en Capas de Supervisión"</p>
+                <p>En curso (2026) "Optimización Prescriptiva de Sistemas Industriales Complejos mediante la Integración de Modelos de Primeros Principios y Gemelos Digitales en Capas de Supervisión"</p>
             </div>
             <div class="card">
                 <i class="fas fa-brain"></i>
                 <h3>Maestría en Ciencia de Datos</h3>
                 <h4>Universidad Nacional Arturo Jauretche</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">En curso (2025) "Desarrollo de un Gemelo Digital basado en datos para la detección temprana de anomalías en motores eléctricos monofásicos industriales"</p>
+                <p>En curso (2025) "Desarrollo de un Gemelo Digital basado en datos para la detección temprana de anomalías en motores eléctricos monofásicos industriales"</p>
             </div>
             <div class="card">
                 <i class="fas fa-graduation-cap"></i>
                 <h3>Ingeniería en Sistemas de Información</h3>
                 <h4>Universidad Tecnológica Nacional</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">Graduado con enfoque en el desarrollo e integración de sistemas complejos.</p>
+                <p>Graduado con enfoque en el desarrollo e integración de sistemas complejos.</p>
             </div>
             <div class="card">
                 <i class="fas fa-chalkboard-teacher"></i>
                 <h3>Profesorado en Disciplinas Industriales</h3>
                 <h4>Universidad Tecnológica Nacional</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">Formación pedagógica orientada a la educación en ciencias e ingeniería (2016 - 2018).</p>
+                <p>Formación pedagógica orientada a la educación en ciencias e ingeniería (2016 - 2018).</p>
             </div>
             <div class="card">
                 <i class="fas fa-shield-alt"></i>
                 <h3>Diplomaturas y Certificaciones Realizadas</h3>
-                <ul style="margin-left: 1rem; font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                <ul>
                     <li>Diplomatura en Ciberseguridad en Sistemas Industriales ICS OT (UNSTA)</li>
                     <li>Experto Universitario en Hacking Ético (Ethical Hacking)</li>
                     <li>Diplomado Universitario de Capacitación Docente en Neurociencias</li>
@@ -650,11 +654,11 @@
             <div class="card">
                 <i class="fas fa-laptop-code"></i>
                 <h3>Cátedras Universitarias (UTN)</h3>
-                <p style="color: var(--accent); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem;">Docencia de Grado en Ingeniería</p>
-                <ul style="margin-left: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                <h4>Docencia de Grado en Ingeniería</h4>
+                <ul>
                     <li>Sistemas en la Industria 4.0 (Ing. en Sistemas)</li>
                     <li>Tecnologías para la automatización (Ing. en Sistemas)</li>
-					<li>Teoría de Control (Ing. en Sistemas)</li>
+                    <li>Teoría de Control (Ing. en Sistemas)</li>
                     <li>Aplicaciones en Tiempo Real en la Industria (Ing. Industrial / Eléctrica)</li>
                     <li>Comunicaciones y Redes (Ing. en Sistemas)</li>
                     <li>Aplicaciones en Tiempo Real (Ing. Eléctrica)</li>
@@ -663,18 +667,18 @@
             <div class="card">
                 <i class="fas fa-industry"></i>
                 <h3>Cursos y Diplomaturas en Transformación Digital</h3>
-                <p style="color: var(--accent); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem;">Especialización</p>
-                <ul style="margin-left: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                <h4>Especialización</h4>
+                <ul>
                     <li><strong>Módulo Ciberseguridad:</strong> Diplomatura en Transformación Digital Productiva e Industria 4.0 (UTN - UIA)</li>
                     <li><strong>Módulo Industrias 4.0 y nuevas tecnologías:</strong> Diplomatura en Transformación Digital (UTN)</li>
-					<li><strong>Módulos: Sistemas inalámbricos - IIoT - Realidad virtual, aumentada y mixta - Computación en la nube e Inteligencia artificial</strong> Seminarios Unidad de Transformación Digital UNAHUR (Centro Universitario PyME - UNAUR)</li>
+                    <li><strong>Módulos: Sistemas inalámbricos - IIoT - Realidad virtual, aumentada y mixta - Computación en la nube e Inteligencia artificial</strong> Seminarios Unidad de Transformación Digital UNAHUR (Centro Universitario PyME - UNAUR)</li>
                 </ul>
             </div>
             <div class="card">
                 <i class="fas fa-home"></i>
                 <h3>Curso Avanzado de Domótica</h3>
-                <p style="color: var(--accent); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem;">EducacionIT (Instructor Experto)</p>
-                <ul style="margin-left: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                <h4>EducacionIT (Instructor Experto)</h4>
+                <ul>
                     <li>Fundamentos de Domótica y Automatismos con placas DIY e integraciones inalámbricas.</li>
                     <li>Manejo de módulos Relé, interruptores WiFi y vinculación arquitectónica con Google Home.</li>
                 </ul>
@@ -686,51 +690,51 @@
         <h2 class="section-title">Divulgación & Medios</h2>
         <div class="grid">
 
-			<div class="card">
+            <div class="card">
                 <i class="fas fa-newspaper"></i>
                 <h3>Universidad del Chubut</h3>
                 <h4>Vinculación Tecnológica (2025)</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">UDC y UTN de La Plata fortalecen formación práctica en Redes, Enfermería y Terapia Ocupacional</p>
-                <a href="https://udc.edu.ar/la-udc-afianza-vinculos-con-utn-de-la-plata-para-fortalecer-experiencias-practicas-en-redes-enfermeria-y-terapia-ocupacional/" target="_blank" class="btn" style="font-size: 0.8rem; padding: 0.5rem 1rem; align-self: flex-start;"><i class="fas fa-external-link-alt"></i> Leer Nota</a>
+                <p>UDC y UTN de La Plata fortalecen formación práctica en Redes, Enfermería y Terapia Ocupacional</p>
+                <a href="https://udc.edu.ar/la-udc-afianza-vinculos-con-utn-de-la-plata-para-fortalecer-experiencias-practicas-en-redes-enfermeria-y-terapia-ocupacional/" target="_blank" class="btn"><i class="fas fa-external-link-alt"></i> Leer Nota</a>
             </div>
-			
+            
             <div class="card">
                 <i class="fab fa-spotify" style="color: #1DB954;"></i>
                 <h3>Entrevista Radio Zonica "La RZ"</h3>
                 <h4>Programa Dimensión 5.0 (2024)</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">IA, Ciberseguridad, IoT, reflexiones sobre el mercado laboral en estos temas.</p>
-                <a href="https://open.spotify.com/episode/2hsa3l5NsljNB2HNBmqVGM?si=f148fbd19e094083" target="_blank" class="btn" style="font-size: 0.8rem; padding: 0.5rem 1rem; align-self: flex-start;"><i class="fas fa-play"></i> Escuchar Episodio</a>
+                <p>IA, Ciberseguridad, IoT, reflexiones sobre el mercado laboral en estos temas.</p>
+                <a href="https://open.spotify.com/episode/2hsa3l5NsljNB2HNBmqVGM?si=f148fbd19e094083" target="_blank" class="btn"><i class="fas fa-play"></i> Escuchar Episodio</a>
             </div>
 
             <div class="card">
                 <i class="fab fa-spotify" style="color: #1DB954;"></i>
                 <h3>Entrevista Radio Zonica "La RZ"</h3>
                 <h4>Programa Prensa Aseguradora (2023)</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Los principios de la Ciberseguridad, impacto, tipos de riesgo, normas y procesos de gestión, los hackers y vulnerabilidades e IA.</p>
-                <a href="https://open.spotify.com/episode/2jK7H974rJf2KFBPskXobO?si=gBKDvxCzS-Os4P4cHzTIsg" target="_blank" class="btn" style="font-size: 0.8rem; padding: 0.5rem 1rem; align-self: flex-start;"><i class="fas fa-play"></i> Escuchar Episodio</a>
+                <p>Los principios de la Ciberseguridad, impacto, tipos de riesgo, normas y procesos de gestión, los hackers y vulnerabilidades e IA.</p>
+                <a href="https://open.spotify.com/episode/2jK7H974rJf2KFBPskXobO?si=gBKDvxCzS-Os4P4cHzTIsg" target="_blank" class="btn"><i class="fas fa-play"></i> Escuchar Episodio</a>
             </div>
 
             <div class="card">
                 <i class="fas fa-bullhorn"></i>
                 <h3>FLISoL (2017)</h3>
                 <h4>Festival Latinoamericano de Instalación de Software Libre</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">Expositor "Aplicaciones con software/hardware libre: robótica, domótica y control de variables físicas".</p>
+                <p>Expositor "Aplicaciones con software/hardware libre: robótica, domótica y control de variables físicas".</p>
             </div>
 
             <div class="card">
                 <i class="fab fa-youtube" style="color: #FF0000;"></i>
                 <h3>Entrevista Diario HOY – Red 92</h3>
                 <h4>Ciclo Especiales (2017)</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Ciclo Especiales Diario HOY – Casas Inteligentes.</p>
-                <a href="https://youtu.be/xzNJsViSfzA" target="_blank" class="btn" style="font-size: 0.8rem; padding: 0.5rem 1rem; align-self: flex-start;"><i class="fas fa-video"></i> Ver Video</a>
+                <p>Ciclo Especiales Diario HOY – Casas Inteligentes.</p>
+                <a href="https://youtu.be/xzNJsViSfzA" target="_blank" class="btn"><i class="fas fa-video"></i> Ver Video</a>
             </div>
 
             <div class="card">
                 <i class="fas fa-newspaper"></i>
                 <h3>Entrevista para Argentina Investiga</h3>
                 <h4>Proyecto de Periodismo Científico (2014)</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Robot autónomo que recorre un laberinto.</p>
-                <a href="https://argentinainvestiga.edu.ar/noticia.php?titulo=robot_autnomo_que_recorre_un_laberinto&id=2301" target="_blank" class="btn" style="font-size: 0.8rem; padding: 0.5rem 1rem; align-self: flex-start;"><i class="fas fa-external-link-alt"></i> Leer Nota</a>
+                <p>Robot autónomo que recorre un laberinto.</p>
+                <a href="https://argentinainvestiga.edu.ar/noticia.php?titulo=robot_autnomo_que_recorre_un_laberinto&id=2301" target="_blank" class="btn"><i class="fas fa-external-link-alt"></i> Leer Nota</a>
             </div>
 
         </div>
@@ -745,7 +749,7 @@
         </p>
 
         <!-- Grilla de Proyectos de Investigación -->
-        <h3 style="font-family: var(--font-pixel); font-size: 0.8rem; color: var(--text-primary); margin-bottom: 1.5rem; text-transform: uppercase;">Proyectos de Investigación (I+D)</h3>
+        <h3 style="font-family: var(--font-pixel); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1.5rem; text-transform: uppercase;">Proyectos de Investigación (I+D)</h3>
         
         <div class="grid" style="margin-bottom: 4rem;">
             
@@ -753,55 +757,55 @@
                 <i class="fas fa-bolt"></i>
                 <h3>2024</h3>
                 <h4>Director Proyecto I+D+i</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">Remotización de Sistemas de Monitoreo y Comando en experiencias con máquinas eléctricas.</p>
+                <p>Remotización de Sistemas de Monitoreo y Comando en experiencias con máquinas eléctricas.</p>
             </div>
 
             <div class="card">
                 <i class="fas fa-city"></i>
                 <h3>2022 - 2024</h3>
                 <h4>Investigador Proyecto de I+D</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">Desarrollos relacionados a los temas energéticos, que ayudan en el camino de transformación a ciudades inteligentes.</p>
+                <p>Desarrollos relacionados a los temas energéticos, que ayudan en el camino de transformación a ciudades inteligentes.</p>
             </div>
 
             <div class="card">
                 <i class="fas fa-wifi"></i>
                 <h3>2018 - 2021</h3>
                 <h4>Investigador Proyecto de I+D</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">Codiseño aplicado con redes de sensores inalámbricos en tiempo real.</p>
+                <p>Codiseño aplicado con redes de sensores inalámbricos en tiempo real.</p>
             </div>
 
             <div class="card">
                 <i class="fas fa-road"></i>
                 <h3>2018 - 2020</h3>
                 <h4>Investigador Proyecto de I+D</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">Estudio y modelización de equipos, para la valoración de la fatiga en mezclas asfálticas, incluidos en la actual normativa europea.</p>
+                <p>Estudio y modelización de equipos, para la valoración de la fatiga en mezclas asfálticas, incluidos en la actual normativa europea.</p>
             </div>
 
             <div class="card">
                 <i class="fas fa-heartbeat"></i>
                 <h3>2018 - 2020</h3>
                 <h4>Investigador Proyecto de I+D</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">DISEÑO DE BOMBAS DE INFUSIÓN DE INSULINA INTELIGENTES.</p>
+                <p>DISEÑO DE BOMBAS DE INFUSIÓN DE INSULINA INTELIGENTES.</p>
             </div>
 
             <div class="card">
                 <i class="fas fa-cloud-showers-heavy"></i>
                 <h3>2016 - 2018</h3>
                 <h4>Investigador Proyecto de I+D</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">Valoración del desempeño de modelos de soluciones viales a nivel de calzada para la conducción segura bajo condición de escasa visibilidad por niebla.</p>
+                <p>Valoración del desempeño de modelos de soluciones viales a nivel de calzada para la conducción segura bajo condición de escasa visibilidad por niebla.</p>
             </div>
 
             <div class="card">
                 <i class="fas fa-laptop-code"></i>
                 <h3>2015 - 2018</h3>
                 <h4>Investigador Proyecto de I+D</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">CODAPLI: Laboratorios Virtuales y Remotos.</p>
+                <p>CODAPLI: Laboratorios Virtuales y Remotos.</p>
             </div>
 
         </div>
 
         <!-- Línea de tiempo de Publicaciones y Congresos -->
-        <h3 style="font-family: var(--font-pixel); font-size: 0.8rem; color: var(--text-primary); margin-bottom: 1.5rem; text-transform: uppercase;">Publicaciones y Congresos</h3>
+        <h3 style="font-family: var(--font-pixel); font-size: 1.2rem; color: var(--text-primary); margin-bottom: 1.5rem; text-transform: uppercase;">Publicaciones y Congresos</h3>
 
         <div class="timeline">
 
@@ -876,7 +880,7 @@
                     <span class="timeline-date">2018</span>
                 </div>
                 <ul>
-                    <li>“Diseño de una plataforma remota para desarrollo de prácticas de laboratorio” <br><span style="color: var(--text-secondary); font-size: 0.9rem;">ISBN 978-950-658-472-6</span></li>
+                    <li>“Diseño de una plataforma remota para desarrollo de prácticas de laboratorio” <br><strong>ISBN 978-950-658-472-6</strong></li>
                 </ul>
             </div>
 
@@ -900,7 +904,7 @@
                     <span class="timeline-date">2018</span>
                 </div>
                 <ul>
-                    <li>"Aplicación de los métodos de Codiseño Hardware Software para la enseñanza y capacitación en el uso racional de la energía" <br><span style="color: var(--text-secondary); font-size: 0.9rem;">ISBN 978-987-1896-95-0</span></li>
+                    <li>"Aplicación de los métodos de Codiseño Hardware Software para la enseñanza y capacitación en el uso racional de la energía" <br><strong>ISBN 978-987-1896-95-0</strong></li>
                 </ul>
             </div>
 
@@ -912,7 +916,7 @@
                     <span class="timeline-date">2018</span>
                 </div>
                 <ul>
-                    <li>"Proyecto de diseño de una Bomba de Insulina Inteligente" <br><span style="color: var(--text-secondary); font-size: 0.9rem;">ISBN 978-987-661-325-5</span></li>
+                    <li>"Proyecto de diseño de una Bomba de Insulina Inteligente" <br><strong>ISBN 978-987-661-325-5</strong></li>
                 </ul>
             </div>
 
@@ -924,7 +928,7 @@
                     <span class="timeline-date">2018</span>
                 </div>
                 <ul>
-                    <li>“Proyecto de desarrollo de un Laboratorio Remoto para el apoyo a la enseñanza universitaria” <br><span style="color: var(--text-secondary); font-size: 0.9rem;">ISSN 2237-2970</span></li>
+                    <li>“Proyecto de desarrollo de un Laboratorio Remoto para el apoyo a la enseñanza universitaria” <br><strong>ISSN 2237-2970</strong></li>
                 </ul>
             </div>
 
@@ -936,7 +940,7 @@
                     <span class="timeline-date">2018</span>
                 </div>
                 <ul>
-                    <li>“Sistema de comunicación para la implementación de redes inalámbricas de sensores” <br><span style="color: var(--text-secondary); font-size: 0.9rem;">ISBN 978-987-3619-27-4</span></li>
+                    <li>“Sistema de comunicación para la implementación de redes inalámbricas de sensores” <br><strong>ISBN 978-987-3619-27-4</strong></li>
                 </ul>
             </div>
 
@@ -948,7 +952,7 @@
                     <span class="timeline-date">2017</span>
                 </div>
                 <ul>
-                    <li>“Determinación variables predictoras de niebla y ubicación de sensor de escasa visibilidad” <br><span style="color: var(--text-secondary); font-size: 0.9rem;">ISBN 978-987-1896-84-4</span></li>
+                    <li>“Determinación variables predictoras de niebla y ubicación de sensor de escasa visibilidad” <br><strong>ISBN 978-987-1896-84-4</strong></li>
                 </ul>
             </div>
 
@@ -960,7 +964,7 @@
                     <span class="timeline-date">2017</span>
                 </div>
                 <ul>
-                    <li>“Estación de medición para análisis y control de parámetros ambientales” <br><span style="color: var(--text-secondary); font-size: 0.9rem;">ISSN: 2525-0949 (306-316)</span></li>
+                    <li>“Estación de medición para análisis y control de parámetros ambientales” <br><strong>ISSN: 2525-0949 (306-316)</strong></li>
                 </ul>
             </div>
 
@@ -972,7 +976,7 @@
                     <span class="timeline-date">2017</span>
                 </div>
                 <ul>
-                    <li>“Plataforma Remota para Prácticas de Laboratorio” <br><span style="color: var(--text-secondary); font-size: 0.9rem;">ISBN 978-987-42-5143-5</span></li>
+                    <li>“Plataforma Remota para Prácticas de Laboratorio” <br><strong>ISBN 978-987-42-5143-5</strong></li>
                 </ul>
             </div>
 
@@ -984,7 +988,7 @@
                     <span class="timeline-date">2016</span>
                 </div>
                 <ul>
-                    <li>Trabajo de investigación “Diseño de plataforma remota para prácticas de laboratorio” <br><span style="color: var(--text-secondary); font-size: 0.9rem;">ISBN 978-987-462-670-7</span></li>
+                    <li>Trabajo de investigación “Diseño de plataforma remota para prácticas de laboratorio” <br><strong>ISBN 978-987-462-670-7</strong></li>
                 </ul>
             </div>
 
@@ -996,7 +1000,7 @@
                     <span class="timeline-date">2016</span>
                 </div>
                 <ul>
-                    <li>“Laboratorio remoto con placa didáctica para desarrollo de prácticas con circuitos digitales” <br><span style="color: var(--text-secondary); font-size: 0.9rem;">ISBN 978-987-733-068-7</span></li>
+                    <li>“Laboratorio remoto con placa didáctica para desarrollo de prácticas con circuitos digitales” <br><strong>ISBN 978-987-733-068-7</strong></li>
                 </ul>
             </div>
 
@@ -1008,7 +1012,7 @@
                     <span class="timeline-date">2013</span>
                 </div>
                 <ul>
-                    <li>Participación como Coautor proyecto: "Robot autónomo capaz de recorrer un laberinto" <br><span style="color: var(--text-secondary); font-size: 0.9rem;">ISBN 978-987-1896-18-9</span></li>
+                    <li>Participación como Coautor proyecto: "Robot autónomo capaz de recorrer un laberinto" <br><strong>ISBN 978-987-1896-18-9</strong></li>
                 </ul>
             </div>
 
@@ -1025,31 +1029,31 @@
                 <img src="img/gemelo_motor.gif" alt="HW & SW - Gemelo Digital de un Motor monofásico" class="card-img-top">
                 <h3>Gemelo Digital Motor Monofasico</h3>
                 <h4>Electronica + Software</h4>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">Despliegue de hardware para captura de datos, modelado matemático del Gemelo Digital e interfaz de usuario, alarmas y objetos 3D.</p>
+                <p>Despliegue de hardware para captura de datos, modelado matemático del Gemelo Digital e interfaz de usuario, alarmas y objetos 3D.</p>
             </div>
 
-			<div class="card">
+            <div class="card">
                 <!-- Reemplazar el src con la ruta a tu imagen o GIF -->
                 <img src="img/robot_ros2.jpg" alt="Robot ROS2" class="card-img-top">
                 <h3>Integración de robot basado en ROS2</h3>
                 <h4>Implementacion de un robot basado en ROS2 para pruebas laboratorio</h4>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">Desarrollo que incluye la adecuación de hardware y desarrollo de software para el despliegue de algoritmos bajo ROS2</p>
+                <p>Desarrollo que incluye la adecuación de hardware y desarrollo de software para el despliegue de algoritmos bajo ROS2.</p>
             </div>
 
-			<div class="card">
+            <div class="card">
                 <!-- Reemplazar el src con la ruta a tu imagen o GIF -->
                 <img src="img/robot_llm.jpg" alt="Robot_LLM" class="card-img-top">
                 <h3>Robot conectado a un LLM (Large Language Model)</h3>
                 <h4>Armado de hardware y software para la conexion de un robot a un LLM</h4>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">PoC - Desarrollo del hardware y acciones de control en un robot diferencial para que tome acciones en base al contexto del chat sin indicarle acciones concretas</p>
-            </div>	
+                <p>PoC - Desarrollo del hardware y acciones de control en un robot diferencial para que tome acciones en base al contexto del chat sin indicarle acciones concretas.</p>
+            </div>  
 
             <div class="card">
                 <!-- Reemplazar el src con la ruta a tu imagen o GIF -->
                 <img src="img/rv.png" alt="Desarrollo Realidad Virtual" class="card-img-top">
                 <h3>Desarrollo Realidad Virtual</h3>
                 <h4>Oculus QUEST 2</h4>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">Desarrollo de interfaces de Realidad Virtual en Oculus Quest 2</p>
+                <p>Desarrollo de interfaces de Realidad Virtual en Oculus Quest 2.</p>
             </div>
 
             <div class="card">
@@ -1057,34 +1061,32 @@
                 <img src="img/ensayo_transformador.jpg" alt="Ensayos de Cortocircuito Transformadores - LABORATORIO REMOTO" class="card-img-top">
                 <h3>Ensayos de Cortocircuito Transformadores - LABORATORIO REMOTO</h3>
                 <h4>Hardware de captura de datos + Interfaz de usuario</h4>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">Desarrollo de hardware de adquisición de datos e interfaz de usuario para laboratorio de ensayos de Cortocircuito de Transformadores</p>
+                <p>Desarrollo de hardware de adquisición de datos e interfaz de usuario para laboratorio de ensayos de Cortocircuito de Transformadores.</p>
             </div>
-			
+            
             <div class="card">
                 <!-- Reemplazar el src con la ruta a tu imagen o GIF -->
                 <img src="img/plc.jpg" alt="Panel de control de Grafana con datos de Node-RED" class="card-img-top">
                 <h3>Desarrollo Tablero + PLC para pruebas de laboratorio / Clases</h3>
                 <h4>Implementacion de un tablero con PLC con IO para desarrollo y pruebas</h4>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">Desarrollo equipamiento para pruebas de programas de PLC en clase, en laboratorio e integración con Laboratorios remotos para pruebas via internet</p>
+                <p>Desarrollo equipamiento para pruebas de programas de PLC en clase, en laboratorio e integración con Laboratorios remotos para pruebas via internet.</p>
             </div>
-			
-			<div class="card">
+            
+            <div class="card">
                 <!-- Reemplazar el src con la ruta a tu imagen o GIF -->
                 <img src="img/lab_rem.jpg" alt="Laboratorio remotos para la practica de programacion de microcontroladores" class="card-img-top">
                 <h3>Desarrollo Plataforma Laboratorio Remoto + Programacion Microcontroladores</h3>
                 <h4>Implementacion de una plataforma de laborario remotos para practicas de programación de microcontroladores</h4>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">Desarrollo e implementación de hardware y software para una plataforma de practicas remotas sobre dispositivos fisicos</p>
+                <p>Desarrollo e implementación de hardware y software para una plataforma de practicas remotas sobre dispositivos fisicos.</p>
             </div>
 
-			<div class="card">
+            <div class="card">
                 <!-- Reemplazar el src con la ruta a tu imagen o GIF -->
                 <img src="img/insulina.jpg" alt="Bomba de infusion de insulina" class="card-img-top">
                 <h3>Desarrollo bomba de infusión de insulina</h3>
                 <h4>Diseño y adecuación del hardware para el diseño de una bomba de infusión de insulina</h4>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">Desarrollo del hardware y acciones de control para prueba de PoC de una bomba de infusión de insulina para personas con diabetes tipo 2</p>
-            </div>			
-
-
+                <p>Desarrollo del hardware y acciones de control para prueba de PoC de una bomba de infusión de insulina para personas con diabetes tipo 2.</p>
+            </div>          
 
         </div>
     </section>
@@ -1096,7 +1098,7 @@
             <span class="skill-tag">Industria 4.0 & Sistemas CiberFísicos</span>
             <span class="skill-tag">Embodied AI</span>
             <span class="skill-tag">Physical AI</span>
-		    <span class="skill-tag">Gemelos Digitales Industriales</span>
+            <span class="skill-tag">Gemelos Digitales Industriales</span>
             <span class="skill-tag">Sistemas Ciberfisicos</span>
             <span class="skill-tag">Robótica</span>
             <span class="skill-tag"> AGV - Automated Guided Vehicle</span>
