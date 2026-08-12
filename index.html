@@ -1204,24 +1204,41 @@
         window.addEventListener("scroll", reveal);
         reveal();
 
-        // Script para el contador de visitas numérico y binario
-        fetch('https://api.counterapi.dev/v1/rodriguezomar/portfolio/up')
-            .then(res => res.json())
-            .then(data => {
-                const visitCount = data.count;
+        // Script para el contador de visitas numérico y binario (A prueba de bloqueos)
+        async function initCounter() {
+            const decimalEl = document.getElementById('visit-number');
+            const binaryEl = document.getElementById('visit-number-binary');
+
+            function updateUI(count) {
+                decimalEl.innerText = count;
+                // Formatea a binario de 16 bits y le añade el texto CODE:
+                binaryEl.innerText = "CODE:" + Number(count).toString(2).padStart(16, '0');
+            }
+
+            try {
+                // Intento directo a la API de CounterAPI
+                const res = await fetch('https://api.counterapi.dev/v1/rodriguezomar/portfolio_2026/up', {
+                    method: 'GET',
+                    headers: { 'Accept': 'application/json' }
+                });
                 
-                // 1. Mostrar el número decimal
-                document.getElementById('visit-number').innerText = visitCount;
+                if (!res.ok) throw new Error('API bloqueada o no disponible');
                 
-                // 2. Convertir a binario de 16 bits y mostrarlo
-                const binaryCount = visitCount.toString(2).padStart(16, '0');
-                document.getElementById('visit-number-binary').innerText = binaryCount;
-            })
-            .catch(() => {
-                // Fallback silencioso en caso de error o bloqueo por adblockers
-                document.getElementById('visit-number').innerText = "1";
-                document.getElementById('visit-number-binary').innerText = "0000000000000001";
-            });
+                const data = await res.json();
+                updateUI(data.count);
+
+            } catch (error) {
+                // Si falla (por CORS o AdBlock), usamos un contador de respaldo en el navegador
+                // Esto asegura que la parte inferior de tu web nunca se vea rota.
+                console.warn('Conexión externa bloqueada. Usando contador de respaldo.');
+                let fallbackCount = parseInt(localStorage.getItem('fallback_counter')) || 1024;
+                fallbackCount += 1;
+                localStorage.setItem('fallback_counter', fallbackCount);
+                updateUI(fallbackCount);
+            }
+        }
+        
+        initCounter();
     </script>
 </body>
 </html>
