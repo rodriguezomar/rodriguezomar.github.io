@@ -1204,7 +1204,7 @@
         window.addEventListener("scroll", reveal);
         reveal();
 
-        // Script para el contador de visitas numérico y binario (A prueba de bloqueos)
+// Script para el contador de visitas numérico y binario (A prueba de bloqueos)
         async function initCounter() {
             const decimalEl = document.getElementById('visit-number');
             const binaryEl = document.getElementById('visit-number-binary');
@@ -1227,12 +1227,10 @@
                 
                 const responseData = await res.json();
                 
-                // La API v2 agrupa el resultado dentro de un objeto "data"
+                // Buscamos específicamente "up_count" dentro del objeto "data"
                 let currentCount = 1;
-                if (responseData && responseData.data && responseData.data.count) {
-                    currentCount = responseData.data.count;
-                } else if (responseData && responseData.count) {
-                    currentCount = responseData.count;
+                if (responseData && responseData.data && responseData.data.up_count !== undefined) {
+                    currentCount = responseData.data.up_count;
                 } else {
                     throw new Error('Estructura JSON inesperada');
                 }
