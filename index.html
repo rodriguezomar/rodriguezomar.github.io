@@ -1210,26 +1210,37 @@
             const binaryEl = document.getElementById('visit-number-binary');
 
             function updateUI(count) {
-                decimalEl.innerText = count;
-                // Formatea a binario de 16 bits y le añade el texto CODE:
-                binaryEl.innerText = Number(count).toString(2).padStart(16, '0');
+                const numericCount = Number(count);
+                if (isNaN(numericCount)) return; // Evita que se imprima NaN
+                decimalEl.innerText = numericCount;
+                binaryEl.innerText = numericCount.toString(2).padStart(16, '0');
             }
 
             try {
-                // Intento directo a la API de CounterAPI (Versión 2) con tu endpoint exacto
+                // Petición a la v2
                 const res = await fetch('https://api.counterapi.dev/v2/rodriguezomar/first-counter-4727/up', {
                     method: 'GET',
                     headers: { 'Accept': 'application/json' }
                 });
                 
-                if (!res.ok) throw new Error('API bloqueada o no disponible');
+                if (!res.ok) throw new Error('API request failed');
                 
-                const data = await res.json();
-                updateUI(data.count);
+                const responseData = await res.json();
+                
+                // La API v2 agrupa el resultado dentro de un objeto "data"
+                let currentCount = 1;
+                if (responseData && responseData.data && responseData.data.count) {
+                    currentCount = responseData.data.count;
+                } else if (responseData && responseData.count) {
+                    currentCount = responseData.count;
+                } else {
+                    throw new Error('Estructura JSON inesperada');
+                }
+                
+                updateUI(currentCount);
 
             } catch (error) {
-                // Si falla (por CORS o AdBlock), usamos un contador de respaldo en el navegador
-                console.warn('Conexión externa bloqueada. Usando contador de respaldo.');
+                console.warn('Usando contador local de respaldo.', error);
                 let fallbackCount = parseInt(localStorage.getItem('fallback_counter')) || 1024;
                 fallbackCount += 1;
                 localStorage.setItem('fallback_counter', fallbackCount);
