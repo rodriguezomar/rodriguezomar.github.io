@@ -17,7 +17,7 @@
     
     <style>
         :root {
-            /* Paleta Arcade / Cyberpunk (Basada en la imagen estetica.png) */
+            /* Paleta Arcade / Cyberpunk */
             --bg-dark: #101111;       
             --bg-grid: rgba(176, 225, 240, 0.05); /* Cuadrícula sutil cian */
             --bg-surface: #161818;    
@@ -189,7 +189,7 @@
             text-transform: uppercase;
         }
 
-        /* Cursor de bloque terminal basado en la imagen */
+        /* Cursor de bloque terminal */
         .typewriter::after {
             content: '█';
             animation: blink 1s step-end infinite;
@@ -1123,8 +1123,8 @@
     
     <footer>
         <div class="visit-counter-container">
-            <div>CODE:<span id="visit-number">_</span></div>
-            <span id="visit-number-binary">_</span>
+            <div>CODE: <span id="visit-number">_</span></div>
+            <div>CODE: <span id="visit-number-binary">_</span></div>
         </div>
         <p style="margin-top: 1rem;">&copy; 2026 Omar Eduardo Rodriguez. Desplegado para www.rodriguezomar.com.ar</p>
     </footer>
@@ -1212,11 +1212,11 @@
             function updateUI(count) {
                 decimalEl.innerText = count;
                 // Formatea a binario de 16 bits y le añade el texto CODE:
-                binaryEl.innerText = "CODE:" + Number(count).toString(2).padStart(16, '0');
+                binaryEl.innerText = Number(count).toString(2).padStart(16, '0');
             }
 
             try {
-                // Intento directo a la API de CounterAPI
+                // Intento directo a la API de CounterAPI (Versión 2) con tu endpoint exacto
                 const res = await fetch('https://api.counterapi.dev/v2/rodriguezomar/first-counter-4727/up', {
                     method: 'GET',
                     headers: { 'Accept': 'application/json' }
@@ -1229,7 +1229,6 @@
 
             } catch (error) {
                 // Si falla (por CORS o AdBlock), usamos un contador de respaldo en el navegador
-                // Esto asegura que la parte inferior de tu web nunca se vea rota.
                 console.warn('Conexión externa bloqueada. Usando contador de respaldo.');
                 let fallbackCount = parseInt(localStorage.getItem('fallback_counter')) || 1024;
                 fallbackCount += 1;
