@@ -354,6 +354,28 @@
         .card h4 { font-size: 1.05rem; margin-bottom: 0.8rem; color: var(--accent); text-transform: uppercase;}
         .card p, .card ul { font-size: 1rem; flex-grow: 1; color: var(--text-secondary); }
 
+        /* Enlaces de cátedras universitarias */
+        .catedra-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--border-color);
+            transition: color 0.2s, border-color 0.2s;
+            display: inline-block;
+            padding: 2px 0;
+        }
+
+        .catedra-link:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .catedra-link::after {
+            content: " ↗";
+            font-size: 0.85rem;
+            color: var(--accent);
+            opacity: 0.7;
+        }
+
         .skills-container { display: flex; flex-wrap: wrap; gap: 0.8rem; }
 
         .skill-tag {
@@ -656,12 +678,12 @@
                 <h3>Cátedras Universitarias (UTN)</h3>
                 <h4>Docencia de Grado en Ingeniería</h4>
                 <ul>
-                    <li>Sistemas en la Industria 4.0 (Ing. en Sistemas)</li>
-                    <li>Tecnologías para la automatización (Ing. en Sistemas)</li>
-                    <li>Teoría de Control (Ing. en Sistemas)</li>
-                    <li>Aplicaciones en Tiempo Real en la Industria (Ing. Industrial / Eléctrica)</li>
-                    <li>Comunicaciones y Redes (Ing. en Sistemas)</li>
-                    <li>Aplicaciones en Tiempo Real (Ing. Eléctrica)</li>
+                    <li><a href="catedra-industria40.html" target="_blank" rel="noopener noreferrer" class="catedra-link">Sistemas en la Industria 4.0 (Ing. en Sistemas)</a></li>
+                    <li><a href="catedra-automatizacion.html" target="_blank" rel="noopener noreferrer" class="catedra-link">Tecnologías para la automatización (Ing. en Sistemas)</a></li>
+                    <li><a href="catedra-control.html" target="_blank" rel="noopener noreferrer" class="catedra-link">Teoría de Control (Ing. en Sistemas)</a></li>
+                    <li><a href="catedra-tiempo-real-industria.html" target="_blank" rel="noopener noreferrer" class="catedra-link">Aplicaciones en Tiempo Real en la Industria (Ing. Industrial / Eléctrica)</a></li>
+                    <li><a href="catedra-redes.html" target="_blank" rel="noopener noreferrer" class="catedra-link">Comunicaciones y Redes (Ing. en Sistemas)</a></li>
+                    <li><a href="catedra-tiempo-real-electrica.html" target="_blank" rel="noopener noreferrer" class="catedra-link">Aplicaciones en Tiempo Real (Ing. Eléctrica)</a></li>
                 </ul>
             </div>
             <div class="card">
